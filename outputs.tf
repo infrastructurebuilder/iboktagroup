@@ -7,5 +7,5 @@ output "resource_group_name" {
 }
 
 output "resource_group_project_id" {
-  value = oktapam_resource_group_project.rg_login.id
+  value = oktapam_resource_group_project.login.id
 }

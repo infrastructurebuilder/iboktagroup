@@ -8,7 +8,7 @@ locals {
   description = "${var.description_prefix} ${var.group}"
 
   server_labels = merge({
-    var.group_discriminator_name = var.group
+    (var.group_discriminator_name) = var.group
   }, var.additional_label_selectors)
 }
 
@@ -60,7 +60,7 @@ resource "oktapam_security_policy" "user" {
     resources {
       servers {
         label_selectors {
-          server_labels = locals.server_labels
+          server_labels = local.server_labels
         }
       }
     }
@@ -93,7 +93,7 @@ resource "oktapam_security_policy" "admin" {
     resources {
       servers {
         label_selectors {
-          server_labels = locals.server_labels
+          server_labels = local.server_labels
         }
       }
     }
